@@ -5,17 +5,18 @@ import "./App.css";
 function App() {
     let [ name, setName ] = useState('jiangyu3');
 
-    useEffect((...args) => {
-        console.log(args);
+    useEffect(() => {
+        console.log('effect', name);
+
+        return () => {
+            console.log('clean effect', name);
+        }
     });
 
     return (
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
                 <a
                     className="App-link"
                     onClick={e => {
